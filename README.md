@@ -1,8 +1,8 @@
 # 🚀 Roadmap: Desarrollo Backend Junior
 ## Programa Stud-IA - Alcaldía de Medellín
 
-> **Duración Total:** 233 horas | **Modalidad:** 60% Virtual - 40% Presencial  
-> **Nivel:** Básico-Intermedio | **Certificación:** Certiplus - Certified Full Stack Developer
+> **Duración Total:** 236 horas | **Modalidad:** 60% Virtual - 40% Presencial  
+> **Nivel:** Básico-Intermedio | **Stack:** Nodejs, Nextjs, React, APIs, Backend SaaS
 
 ---
 
