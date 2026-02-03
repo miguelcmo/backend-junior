@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo básico de tablas en HTML</title>
+</head>
+
+<body>
+
+    <h1>Horario del Curso</h1>
+    <p>La siguiente tabla muestra el horario semanal del curso.</p>
+
+    <table border="1">
+        <caption>Horario semanal de clases</caption>
+
+        <thead>
+            <tr>
+                <th>Día</th>
+                <th>Hora</th>
+                <th>Asignatura</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Lunes</td>
+                <td>8:00 a. m. – 10:00 a. m.</td>
+                <td>Programación</td>
+            </tr>
+            <tr>
+                <td>Martes</td>
+                <td>10:00 a. m. – 12:00 m.</td>
+                <td>Bases de Datos</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Miércoles</td>
+                <td>8:00 a. m. – 10:00 a. m.</td>
+                <td>Redes</td>
+            </tr>
+            <tr>
+                <!-- <td>celda anulada por rowspan</td> -->
+                <td>10:00 a. m. – 12:00 m.</td>
+                <td>Seguridad Informática</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="3">Total de asignaturas: 4</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+
+    <table border="1">
+        <tr>
+            <th>Col 1</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+            <th>Col 4</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Col 1</td>
+            <td>Col 2</td>
+            <td>Col 3</td>
+            <td>Col 4</td>
+        </tr>
+        <tr>
+            <!-- <td>Col 1</td> -->
+            <td>Col 2</td>
+            <td colspan="2">Col 3</td>
+            <!-- <td>Col 4</td> -->
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multimedia HTML5</title>
+</head>
+<body>
+	<header>
+		<h1>Imágenes, audio, vídeo y SVG en HTML5</h1>
+		<p>Ejemplos prácticos usando archivos de <code>multimedia-portfolio/assets/</code>.</p>
+	</header>
+
+	<main>
+		<section id="images">
+			<h2>Imágenes</h2>
+			<p>Comparación de formatos y tamaños. Observe el atributo <code>alt</code>, y el uso de <code>width</code>/<code>height</code> para ayudar al navegador a reservar espacio.</p>
+
+			<figure>
+				<img src="multimedia-portfolio/assets/images/file_example_JPG_100kB.jpg" alt="JPG 100KB" width="620" height="213">
+				<figcaption>JPG 100KB — archivo pequeño (menor detalle).</figcaption>
+			</figure>
+
+			<figure>
+				<img src="multimedia-portfolio/assets/images/file_example_JPG_1MB.jpg" alt="JPG 1MB" width="320" height="213">
+				<figcaption>JPG 1MB — más detalle; mayor peso y tiempo de descarga.</figcaption>
+			</figure>
+
+			<figure>
+				<img src="multimedia-portfolio/assets/images/file_example_PNG_3MB.png" alt="PNG 3MB" width="320" height="213">
+				<figcaption>PNG 3MB — buena para transparencia, generalmente mayor peso que JPG/WebP.</figcaption>
+			</figure>
+
+			<figure>
+				<img src="multimedia-portfolio/assets/images/file_example_WEBP_50kB.webp" alt="WEBP 50KB" width="320" height="180">
+				<figcaption>WEBP 50KB — formato moderno que suele ofrecer mejor compresión.</figcaption>
+			</figure>
+
+			<h3>Imagen responsiva (ejemplo con <code>picture</code> y <code>source</code>)</h3>
+			<p>El elemento <code>picture</code> permite elegir formato/versión según soporte o medios.</p>
+			<figure>
+				<picture>
+					<source srcset="multimedia-portfolio/assets/images/file_example_WEBP_500kB.webp" type="image/webp">
+					<source srcset="multimedia-portfolio/assets/images/file_example_JPG_1MB.jpg" type="image/jpeg">
+					<img src="multimedia-portfolio/assets/images/file_example_JPG_1MB.jpg" alt="Ejemplo picture" width="480" height="320">
+				</picture>
+				<figcaption>Uso de <code>picture</code> para servir WebP cuando el navegador lo soporta, y JPG en fallback.</figcaption>
+			</figure>
+
+			<h3>Consejos rápidos</h3>
+			<ul>
+				<li>Optimizar para la resolución de destino: imágenes grandes afectan rendimiento.</li>
+				<li>Preferir WebP/AVIF cuando sea posible para mejor compresión.</li>
+				<li>Siempre incluir <code>alt</code> descriptivo para accesibilidad.</li>
+			</ul>
+		</section>
+
+		<section id="audio">
+			<h2>Audio</h2>
+			<p>Use <code>&lt;audio controls&gt;</code> y provea múltiples <code>&lt;source&gt;</code> con distintos formatos para compatibilidad.</p>
+
+			<figure>
+				<figcaption>Audio MP3 (700KB)</figcaption>
+				<audio controls>
+					<source src="multimedia-portfolio/assets/audio/file_example_MP3_700KB.mp3" type="audio/mpeg">
+					<source src="multimedia-portfolio/assets/audio/file_example_OOG_1MG.ogg" type="audio/ogg">
+					Tu navegador no soporta el elemento de audio.
+				</audio>
+			</figure>
+
+			<figure>
+				<figcaption>Audio WAV (mayor calidad, mayor tamaño)</figcaption>
+				<audio controls>
+					<source src="multimedia-portfolio/assets/audio/file_example_WAV_10MG.wav" type="audio/wav">
+					<p>Fallback: descargar el archivo <a href="multimedia-portfolio/assets/audio/file_example_WAV_10MG.wav">WAV 10MB</a>.</p>
+				</audio>
+			</figure>
+
+			<p>Implicaciones: formatos comprimidos (MP3/OGG) son preferibles para la web; WAV ocupa mucho y tarda en cargar.</p>
+		</section>
+
+		<section id="video">
+			<h2>Vídeo</h2>
+			<p>El elemento <code>&lt;video controls&gt;</code> admite múltiples <code>&lt;source&gt;</code>. Mostrar varios tamaños/resoluciones ayuda a entender consumo de datos.</p>
+
+			<figure>
+				<figcaption>Vídeo pequeño — 480p (~1.5MB)</figcaption>
+				<video controls width="480">
+					<source src="multimedia-portfolio/assets/video/file_example_MP4_480_1_5MG.mp4" type="video/mp4">
+					Tu navegador no soporta el elemento de vídeo.
+				</video>
+			</figure>
+
+			<figure>
+				<figcaption>Vídeo medio — 1280px (~10MB)</figcaption>
+				<video controls width="640">
+					<source src="multimedia-portfolio/assets/video/file_example_MP4_1280_10MG.mp4" type="video/mp4">
+					<p>Fallback: descargar <a href="multimedia-portfolio/assets/video/file_example_MP4_1280_10MG.mp4">MP4 1280px</a>.</p>
+				</video>
+			</figure>
+
+			<figure>
+				<figcaption>Vídeo grande — 1920px (~18MB)</figcaption>
+				<video controls width="1280">
+					<source src="multimedia-portfolio/assets/video/file_example_MP4_1920_18MG.mp4" type="video/mp4">
+					Tu navegador no soporta el elemento de vídeo.
+				</video>
+			</figure>
+
+			<p>Recuerda: ofrecer versiones adaptadas (resoluciones/bitrates) y usar streaming o CDN para producción.</p>
+		</section>
+
+		<section id="svg">
+			<h2>SVG</h2>
+			<p>SVG es vectorial: escala sin pérdida. Ideal para iconos y gráficos simples.</p>
+
+			<figure>
+				<img src="multimedia-portfolio/assets/svg/camera-svgrepo-com.svg" alt="Icono cámara SVG" width="128" height="128">
+				<figcaption>SVG como imagen — se escala limpio a cualquier tamaño.</figcaption>
+			</figure>
+
+			<figure>
+				<object data="multimedia-portfolio/assets/svg/suitcase-svgrepo-com.svg" type="image/svg+xml" width="128" height="128">
+					SVG no soportado — <a href="multimedia-portfolio/assets/svg/suitcase-svgrepo-com.svg">descargar SVG</a>
+				</object>
+				<figcaption>SVG embebido con <code>object</code> (permite interacción y estilos internos cuando es necesario).</figcaption>
+			</figure>
+
+			<h3>SVG inline (ejemplo minimal)</h3>
+			<svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ejemplo inline SVG">
+				<rect x="5" y="5" width="110" height="70" fill="none" stroke="black" />
+				<circle cx="40" cy="40" r="18" fill="none" stroke="black" />
+				<path d="M70 30 L90 50 L70 50 Z" fill="none" stroke="black" />
+			</svg>
+
+			<p>SVG es pequeño para íconos y permite manipulación con CSS/JS si se inserta inline.</p>
+		</section>
+
+		<section id="conclusion">
+			<h2>Implicaciones de diseño</h2>
+			<ul>
+				<li>Rendimiento: archivos grandes (vídeo, PNG, WAV) aumentan tiempo de carga; optimice y ofrezca versiones.</li>
+				<li>Responsividad: use <code>srcset</code>/<code>picture</code> para servir imágenes adecuadas al dispositivo.</li>
+				<li>Accesibilidad: siempre provea <code>alt</code>, subtítulos/transcripciones para audio/vídeo.</li>
+				<li>Formatos: WebP/AVIF para imágenes, MP3/OGG para audio y MP4/WebM para vídeo (según compatibilidad).</li>
+			</ul>
+		</section>
+	</main>
+
+	<footer>
+		<p>Tutorial básico para manejo de elementos gráficos y multimedia en HTML5.</p>
+	</footer>
+</body>
+</html>
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog Personal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Encabezado principal -->
+    <header>
+        <h1>Mi Blog Personal</h1>
+        <p>Tecnología, deporte y experiencias</p>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#articulos">Artículos</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="inicio">
+
+        <!-- Sección de artículos -->
+        <section id="articulos">
+            <h2>Últimos artículos</h2>
+
+            <article>
+                <h3>Ciclomontañismo y tecnología</h3>
+                <p class="fecha">Publicado el 10 de febrero de 2026</p>
+
+                <p>
+                    El ciclismo de montaña (XC) no solo es un deporte, también es una
+                    oportunidad para aplicar tecnología, análisis de datos y disciplina.
+                </p>
+
+                <p>
+                    En este artículo exploramos cómo la tecnología mejora el rendimiento
+                    deportivo y la experiencia en ruta.
+                </p>
+
+                <a href="#">Leer más</a>
+            </article>
+
+            <article>
+                <h3>Aprendiendo CSS desde cero</h3>
+                <p class="fecha">Publicado el 5 de febrero de 2026</p>
+
+                <p>
+                    CSS es el lenguaje que nos permite dar estilo a nuestras páginas web.
+                    Entender su sintaxis y el modelo de caja es fundamental.
+                </p>
+
+                <a href="#">Leer más</a>
+            </article>
+        </section>
+
+        <!-- Barra lateral -->
+        <aside>
+            <h2>Categorías</h2>
+            <ul>
+                <li>Tecnología</li>
+                <li>Deporte</li>
+                <li>Educación</li>
+                <li>Viajes</li>
+            </ul>
+
+            <h2>Recursos</h2>
+            <ol>
+                <li>HTML5</li>
+                <li>CSS Básico</li>
+                <li>Buenas prácticas</li>
+            </ol>
+        </aside>
+
+        <!-- Sección sobre el autor -->
+        <section id="sobre-mi">
+            <h2>Sobre mí</h2>
+
+            <p>
+                Soy ingeniero electrónico y desarrollador de software, apasionado por la
+                educación, la tecnología y el deporte.
+            </p>
+
+            <table>
+                <caption>Información general</caption>
+                <thead>
+                    <tr>
+                        <th>Área</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Profesión</td>
+                        <td>Ingeniero / Desarrollador</td>
+                    </tr>
+                    <tr>
+                        <td>Intereses</td>
+                        <td>Tecnología, deporte, viajes</td>
+                    </tr>
+                    <tr>
+                        <td>Ubicación</td>
+                        <td>Colombia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Formulario de contacto -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje"></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 - Mi Blog Personal</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil Personal</title>
+</head>
+<body>
+    <h1>Mi Perfil Personal</h1>
+    
+    <form id="profileForm">
+        <!-- Información General -->
+        <fieldset>
+            <legend>Información General</legend>
+            
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="Tu nombre" readonly required>
+            </div>
+
+            <div>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="1" max="120" required>
+            </div>
+
+            <div>
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" name="ciudad" required>
+            </div>
+        </fieldset>
+
+        <!-- Gustos e Intereses -->
+        <fieldset>
+            <legend>Gustos e Intereses</legend>
+            
+            <div>
+                <label>Hobbies (selecciona los que apliquen):</label>
+                <div>
+                    <input type="checkbox" id="musica" name="hobbies" value="música">
+                    <label for="musica">Música</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="deportes" name="hobbies" value="deportes">
+                    <label for="deportes">Deportes</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="videojuegos" name="hobbies" value="videojuegos">
+                    <label for="videojuegos">Videojuegos</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="lectura" name="hobbies" value="lectura">
+                    <label for="lectura">Lectura</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="programacion" name="hobbies" value="programación">
+                    <label for="programacion">Programación</label>
+                </div>
+            </div>
+
+            <div>
+                <label for="generoMusical">Género musical favorito:</label>
+                <select id="generoMusical" name="generoMusical" required>
+                    <option value="">-- Selecciona un género --</option>
+                    <option value="rock">Rock</option>
+                    <option value="pop">Pop</option>
+                    <option value="hiphop">Hip-Hop</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="clasica">Clásica</option>
+                    <option value="electronica">Electrónica</option>
+                    <option value="reggaeton">Reggaetón</option>
+                    <option value="indie">Indie</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="nivelTecnologia">Nivel de interés en tecnología (1-10):</label>
+                <input type="range" id="nivelTecnologia" name="nivelTecnologia" min="1" max="10" value="5">
+            </div>
+        </fieldset>
+
+        <!-- Preferencias -->
+        <fieldset>
+            <legend>Preferencias</legend>
+            
+            <div>
+                <label for="colorFavorito">Color favorito:</label>
+                <input type="color" id="colorFavorito" name="colorFavorito" value="#0000ff">
+            </div>
+
+            <div>
+                <label for="fechaCumpleanos">Fecha de cumpleaños:</label>
+                <input type="date" id="fechaCumpleanos" name="fechaCumpleanos" required>
+            </div>
+
+            <div>
+                <label for="comentarios">Comentarios personales:</label>
+                <textarea id="comentarios" name="comentarios" rows="10" cols="50"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Botones -->
+        <div>
+            <button type="submit">Guardar perfil</button>
+            <button type="reset">Limpiar formulario</button>
+        </div>
+    </form>
+</body>
+</html>
