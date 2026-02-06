@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid - 10 Ejercicios</title>
+    <link rel="stylesheet" href="grid-css.css">
+</head>
+<body>
+    <h1>🔥 CSS Grid - 10 Ejercicios</h1>
+    
+    <!-- EJERCICIO 1 -->
+    <div class="exercise">
+        <h2>🏗️ Ejercicio 1: Grid Básico</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Crear tu primer grid con 3 columnas iguales usando fracciones (fr).
+            <br><strong>Propiedad clave:</strong> display: grid, grid-template-columns: 1fr 1fr 1fr
+        </div>
+        <div class="demo">
+            <div class="grid-container-1">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+                <div class="grid-item">Item 4</div>
+                <div class="grid-item">Item 5</div>
+                <div class="grid-item">Item 6</div>
+                <div class="grid-item">Item 7</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 2 -->
+    <div class="exercise">
+        <h2>📏 Ejercicio 2: Definiendo Filas</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Controlar tanto columnas como filas con tamaños específicos.
+            <br><strong>Propiedad clave:</strong> grid-template-rows: 100px 150px
+        </div>
+        <div class="demo">
+            <div class="grid-container-2">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+                <div class="grid-item">Item 4</div>
+                <div class="grid-item">Item 5</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 3 -->
+    <div class="exercise">
+        <h2>📐 Ejercicio 3: Tamaños Mixtos</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Combinar píxeles, fracciones y otros valores para crear layouts flexibles.
+            <br><strong>Propiedad clave:</strong> grid-template-columns: 200px 1fr 100px
+        </div>
+        <div class="demo">
+            <div class="grid-container-3">
+                <div class="grid-item">200px fijo</div>
+                <div class="grid-item">Flexible (1fr)</div>
+                <div class="grid-item">100px fijo</div>
+                <div class="grid-item">Item 4</div>
+                <div class="grid-item">Item 5</div>
+                <div class="grid-item">Item 6</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 4 -->
+    <div class="exercise">
+        <h2>🎯 Ejercicio 4: Posicionamiento con Grid-Area</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Posicionar elementos específicamente usando coordenadas de grid.
+            <br><strong>Propiedad clave:</strong> grid-area: fila-inicio / columna-inicio / fila-fin / columna-fin
+        </div>
+        <div class="demo">
+            <div class="grid-container-4">
+                <div class="grid-item item1">Item 1 (ocupa 2 columnas)</div>
+                <div class="grid-item item2">Item 2 (ocupa 2 filas)</div>
+                <div class="grid-item item3">Item 3</div>
+                <div class="grid-item item4">Item 4</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 5 -->
+    <div class="exercise">
+        <h2>🏷️ Ejercicio 5: Nombres de Líneas</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Usar nombres descriptivos para las líneas del grid en lugar de números.
+            <br><strong>Propiedad clave:</strong> grid-template-columns: [inicio] 1fr [medio] 2fr [fin]
+        </div>
+        <div class="demo">
+            <div class="grid-container-5">
+                <div class="grid-item item1">inicio → medio</div>
+                <div class="grid-item item2">medio → fin</div>
+                <div class="grid-item item3">inicio → medio</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 6 -->
+    <div class="exercise">
+        <h2>🗺️ Ejercicio 6: Grid Template Areas</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Crear layouts usando nombres de áreas, más intuitivo y legible.
+            <br><strong>Propiedad clave:</strong> grid-template-areas y grid-area con nombres
+        </div>
+        <div class="demo">
+            <div class="grid-container-6">
+                <div class="grid-item header">
+                    <h1>Titulo de mi App</h1>
+                    <div class="navigation">
+                        <div>
+                            <ul>
+                                <li>link 1</li>
+                                <li>link 2</li>
+                                <li>link 3</li>
+                            <ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item sidebarleft">SIDEBAR LEFT</div>
+                <div class="grid-item main">MAIN</div>
+                <div class="grid-item footer">FOOTER</div>
+                <div class="grid-item sidebarright">FOOTER RIGHT</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 7 -->
+    <div class="exercise">
+        <h2>🔄 Ejercicio 7: Auto-fit y Minmax</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Crear grids que se adapten automáticamente al contenido disponible.
+            <br><strong>Propiedad clave:</strong> repeat(auto-fit, minmax(150px, 1fr))
+        </div>
+        <div class="demo">
+            <div class="grid-container-7">
+                <div class="grid-item">Responsive 1</div>
+                <div class="grid-item">Responsive 2</div>
+                <div class="grid-item">Responsive 3</div>
+                <!-- <div class="grid-item">Responsive 4</div> -->
+                <!-- <div class="grid-item">Responsive 5</div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 8 -->
+    <div class="exercise">
+        <h2>⚖️ Ejercicio 8: Alineación de Elementos</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Controlar la alineación tanto del contenedor como de elementos individuales.
+            <br><strong>Propiedades clave:</strong> justify-content, align-content, justify-self, align-self
+        </div>
+        <div class="demo">
+            <div class="grid-container-8">
+                <div class="grid-item item1">Start-Start</div>
+                <div class="grid-item item2">Center-Center</div>
+                <div class="grid-item item3">End-End</div>
+                <div class="grid-item">Normal 4</div>
+                <div class="grid-item">Normal 5</div>
+                <div class="grid-item">Normal 6</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 9 -->
+    <div class="exercise">
+        <h2>🌊 Ejercicio 9: Grid Implícito</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Manejar elementos que van más allá del grid explícito definido.
+            <br><strong>Propiedades clave:</strong> grid-auto-rows, grid-auto-flow
+        </div>
+        <div class="demo">
+            <div class="grid-container-9">
+                <div class="grid-item">1 (explícito)</div>
+                <div class="grid-item">2 (explícito)</div>
+                <div class="grid-item">3 (explícito)</div>
+                <div class="grid-item">4 (explícito)</div>
+                <div class="grid-item">5 (explícito)</div>
+                <div class="grid-item">6 (explícito)</div>
+                <div class="grid-item highlight">7 (implícito)</div>
+                <div class="grid-item highlight">8 (implícito)</div>
+                <div class="grid-item highlight">9 (implícito)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 10 -->
+    <div class="exercise">
+        <h2>🎨 Ejercicio 10: Layout Completo Responsive</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Crear un layout complejo que se adapte perfectamente a diferentes tamaños de pantalla.
+            <br><strong>Técnicas combinadas:</strong> grid-template-areas + media queries + responsive design
+        </div>
+        <div class="demo">
+            <div class="grid-container-10">
+                <div class="grid-item header">HEADER</div>
+                <div class="grid-item nav">NAV</div>
+                <div class="grid-item main">MAIN CONTENT</div>
+                <div class="grid-item content">ARTICLE</div>
+                <div class="grid-item aside">ASIDE</div>
+                <div class="grid-item footer">FOOTER</div>
+            </div>
+            <p style="margin-top: 10px; font-style: italic; color: #666;">
+                💡 Tip: Redimensiona la ventana para ver el comportamiento responsive
+            </p>
+        </div>
+    </div>
+
+    <div class="last-section">
+        <h3>🎉 ¡Excelente trabajo!</h3>
+        <p>Has dominado CSS Grid con estos 10 ejercicios. Ahora controlas:</p>
+        <div class="last-section-content">
+            <div>
+                <strong>Conceptos Básicos:</strong>
+                <ul>
+                    <li>Grid containers y items</li>
+                    <li>Columnas y filas</li>
+                    <li>Gaps y espaciado</li>
+                    <li>Unidades fr y mixtas</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Conceptos Avanzados:</strong>
+                <ul>
+                    <li>Grid areas y posicionamiento</li>
+                    <li>Auto-fit y minmax</li>
+                    <li>Alineación completa</li>
+                    <li>Layouts responsive complejos</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 15px;"><strong>🚀 Próximo paso:</strong> ¡Combina Flexbox y Grid en tus proyectos reales!</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+.exercise {
+    margin-bottom: 50px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.exercise h2 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.explanation {
+    background-color: #e8f4f8;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.demo {
+    border: 2px dashed #ccc;
+    padding: 10px;
+    background-color: white;
+}
+
+.item {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.last-section {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+/* ejercicio 1 */
+.flex-container-1 {
+    display: flex;
+}
+/* ejercicio 2 */
+.flex-container-2 {
+    display:flexbox;
+    flex-direction: column;
+}
+
+/* Ejercicio 3 */
+.flex-container-3 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Ejercicio 4 */
+.flex-container-4 {
+    display: flex;
+    align-items: center;
+    height: 400px;
+}
+
+/* Ejercicio 5 */
+.flex-container-5 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+}
+
+/* Ejercicio 6  */
+.flex-container-6 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 200px;
+}
+
+/* Ejercicio 7 */
+.flex-container-7 {
+    display: flex;
+    background-color: #ecf0f1;
+    padding: 10px;
+}
+
+.flex-container-7 .item1 {
+    flex-grow: calc(2+1);
+}
+
+.flex-container-7 .item2 {
+    flex-grow: 4;
+
+}
+
+.flex-container-7 .item3 {
+    flex-grow: 1;
+}
+
+
+/* Ejercicio 8 */
+.flex-container-8 {
+    display: flex;
+    background-color: #ecf0f1;
+    padding: 10px;
+}
+
+.flex-container-8 .item {
+    height: 150px;
+}
+
+.flex-container-8 .item1 {
+    flex-grow: 2;
+}
+
+.flex-container-8 .item2 {
+    flex-grow: 1;
+    height: 250px;
+}
+
+.flex-container-8 .item3 {
+    flex-grow: 4;
+    height: 200px;
+}
+
+/* Ejercicio 9 */
+.flex-container-9 {
+    display: flex;
+    padding: 10px;
+}
+
+.flex-container-9 .item1 {
+    flex-basis: 200px;
+}
+
+.flex-container-9 .item2 {
+    flex-basis: 100px;
+}
+
+.flex-container-9 .item3 {
+    flex-basis: auto;
+}
+
+/* Ejercicio 10 */
+.flex-container-10 {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    background-color: #ecf0f1;
+}
+
+.header, .footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    /* flex: flex-grow flex-shrink flex-basis */
+    flex: 1;
+}
+
+.sidebar {
+    background-color: #34495e;
+    color: white;
+    padding: 20px;
+    flex-basis: 200px;
+}
+
+.content {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    flex: 1;
+}
+

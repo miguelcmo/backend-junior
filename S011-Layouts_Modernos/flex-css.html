@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox - 10 Ejercicios</title>
+    <link rel="stylesheet" href="flex-css.css">
+</head>
+<body>
+    <h1>🚀 CSS Flexbox - 10 Ejercicios</h1>
+    
+    <!-- EJERCICIO 1 -->
+    <div class="exercise">
+        <h2>📦 Ejercicio 1: Contenedor Flex Básico</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Entender cómo convertir un contenedor en flex y el comportamiento por defecto.
+            <br><strong>Propiedad clave:</strong> display: flex
+        </div>
+        <div class="demo">
+            <div class="flex-container-1">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+                <div class="item">Item 4</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 2 -->
+    <div class="exercise">
+        <h2>🔄 Ejercicio 2: Dirección del Flex</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Cambiar la dirección de los elementos flex de horizontal a vertical.
+            <br><strong>Propiedad clave:</strong> flex-direction: column
+        </div>
+        <div class="demo">
+            <div class="flex-container-2">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 3 -->
+    <div class="exercise">
+        <h2>↔️ Ejercicio 3: Justificación del Contenido</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Distribuir elementos a lo largo del eje principal con espacio entre ellos.
+            <br><strong>Propiedad clave:</strong> justify-content: space-between
+        </div>
+        <div class="demo">
+            <div class="flex-container-3">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 4 -->
+    <div class="exercise">
+        <h2>⬆️ Ejercicio 4: Alineación de Elementos</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Centrar elementos verticalmente usando align-items.
+            <br><strong>Propiedad clave:</strong> align-items: center
+        </div>
+        <div class="demo">
+            <div class="flex-container-4">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2 </div>
+                <div class="item">Item 3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 5 -->
+    <div class="exercise">
+        <h2>🔄 Ejercicio 5: Flex Wrap</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Permitir que los elementos flex se envuelvan en nuevas líneas.
+            <br><strong>Propiedad clave:</strong> flex-wrap: wrap
+        </div>
+        <div class="demo">
+            <div class="flex-container-5">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+                <div class="item">Item 4</div>
+                <div class="item">Item 5</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 6 -->
+    <div class="exercise">
+        <h2>📐 Ejercicio 6: Align Content</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Alinear líneas flex cuando hay múltiples líneas con flex-wrap.
+            <br><strong>Propiedad clave:</strong> align-content: space-around
+        </div>
+        <div class="demo">
+            <div class="flex-container-6">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 7 -->
+    <div class="exercise">
+        <h2>📈 Ejercicio 7: Flex Grow</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Controlar cómo crecen los elementos para llenar el espacio disponible.
+            <br><strong>Propiedad clave:</strong> flex-grow (3, 4, 1)
+        </div>
+        <div class="demo">
+            <div class="flex-container-7">
+                <div class="item item1">Caja: 1, Grow: 1</div>
+                <div class="item item2">Caja: 2, Grow: 2</div>
+                <div class="item item3">Caja: 3, Grow: 1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 8 -->
+    <div class="exercise">
+        <h2>📉 Ejercicio 8: Flex Shrink</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Controlar cómo se reducen los elementos cuando no hay suficiente espacio.
+            <br><strong>Propiedad clave:</strong> flex-shrink (1, 3, 1)
+        </div>
+        <div class="demo">
+            <div class="flex-container-8">
+                <div class="item item1">Shrink: 1</div>
+                <div class="item item2">Shrink: 3</div>
+                <div class="item item3">Shrink: 1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 9 -->
+    <div class="exercise">
+        <h2>📏 Ejercicio 9: Flex Basis</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Definir el tamaño base de los elementos antes de que se distribuya el espacio restante.
+            <br><strong>Propiedad clave:</strong> flex-basis (200px, 100px, auto)
+        </div>
+        <div class="demo">
+            <div class="flex-container-9">
+                <div class="item item1">Basis: 200px + jhjkhcjsadhjkhvjkkjdchsgdbkcgsdhjkhskjdcv</div>
+                <div class="item item2">Basis: 100px + texto</div>
+                <div class="item item3">Basis: auto + texto</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO 10 -->
+    <div class="exercise"></div>
+        <h2>🎯 Ejercicio 10: Layout Completo</h2>
+        <div class="explanation">
+            <strong>Objetivo:</strong> Crear un layout completo combinando múltiples propiedades flex (header, sidebar, contenido, footer).
+            <br><strong>Propiedades clave:</strong> flex-direction, flex, flex-basis
+        </div>
+        <div class="demo">
+            <div class="flex-container-10">
+                <div class="header">HEADER</div>
+                <div class="main-content">
+                    <div class="sidebar">SIDEBAR</div>
+                    <div class="content">CONTENIDO PRINCIPAL</div>
+                </div>
+                <div class="footer">FOOTER</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="last-section">
+        <h3>🎉 ¡Felicitaciones!</h3>
+        <p>Has completado los 10 ejercicios de Flexbox. Ahora tienes una comprensión sólida de:</p>
+        <ul>
+            <li>Contenedores flex básicos</li>
+            <li>Direcciones y envolturas</li>
+            <li>Alineación y justificación</li>
+            <li>Propiedades de elementos flex (grow, shrink, basis)</li>
+            <li>Layouts complejos combinando propiedades</li>
+        </ul>
+    </div>
+</body>
+</html>
