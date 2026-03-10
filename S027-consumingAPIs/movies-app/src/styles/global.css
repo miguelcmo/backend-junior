@@ -1,0 +1,113 @@
+/* ===== ESTILOS GLOBALES - NEON CINEMA ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colores principales */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #12121a;
+  --color-bg-card: #16161f;
+
+  /* Colores neon */
+  --color-neon-cyan: #00eaff;
+  --color-neon-blue: #008cff;
+  --color-neon-purple: #a855f7;
+  --color-neon-pink: #ec4899;
+
+  /* Colores de texto */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+
+  /* Gradientes */
+  --gradient-neon: linear-gradient(135deg, var(--color-neon-cyan), var(--color-neon-blue));
+  --gradient-card: linear-gradient(145deg, #1a1a24, #0f0f15);
+  --gradient-bg: radial-gradient(ellipse at top, #1b1b2f 0%, #0a0a0f 50%, #050505 100%);
+
+  /* Sombras neon */
+  --shadow-neon: 0 0 20px rgba(0, 234, 255, 0.3);
+  --shadow-neon-strong: 0 0 30px rgba(0, 234, 255, 0.5), 0 0 60px rgba(0, 140, 255, 0.3);
+
+  /* Bordes */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--gradient-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon-cyan);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-blue);
+}
+
+/* Container principal */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Utilidades */
+.text-gradient {
+  background: var(--gradient-neon);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-text {
+  text-shadow:
+    0 0 10px var(--color-neon-cyan),
+    0 0 20px var(--color-neon-cyan),
+    0 0 40px var(--color-neon-blue);
+}

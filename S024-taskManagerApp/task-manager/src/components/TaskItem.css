@@ -1,0 +1,17 @@
+.task-item {
+    background: white;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    list-style: none;
+}
+
+.task-item:hover {
+    background-color: bisque;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Ecommerce Demo</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .hero {
+            background-image: url('https://picsum.photos/1920/600?random=1');
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- NAVBAR -->
+    <nav class="bg-gray-900 text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+            <h1 class="text-xl font-bold">ShopX</h1>
+
+            <div class="hidden md:flex w-1/2">
+                <input class="w-full px-3 py-2 rounded-l text-black" placeholder="Buscar productos">
+                <button class="bg-blue-600 px-4 rounded-r">Buscar</button>
+            </div>
+
+            <button onclick="toggleCart()" class="bg-yellow-500 px-4 py-2 rounded">
+                🛒 Carrito
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero h-100 bg-cover bg-center flex items-center justify-center text-white">
+        <div class="text-center bg-black/50 p-8 rounded">
+            <h1 class="text-4xl font-bold mb-3">Mega Ofertas Tecnológicas</h1>
+            <p class="mb-4">Descubre los mejores productos al mejor precio</p>
+            <button class="bg-blue-600 px-6 py-2 rounded hover:bg-blue-700 transition">
+                Comprar Ahora
+            </button>
+        </div>
+    </section>
+
+    <!-- MAIN -->
+    <div class="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-6">
+
+        <!-- FILTROS -->
+        <aside class="lg:w-1/4">
+            <div class="bg-white p-4 rounded shadow">
+
+                <h3 class="font-semibold mb-4">Filtros</h3>
+
+                <label class="block mb-1">Categoría</label>
+                <select class="w-full border rounded p-2 mb-4">
+                    <option>Todos</option>
+                    <option>Electrónica</option>
+                    <option>Accesorios</option>
+                    <option>Gaming</option>
+                </select>
+
+                <label class="block mb-1">Precio</label>
+                <input type="range" class="w-full mb-4">
+
+                <label class="flex items-center gap-2">
+                    <input type="checkbox">
+                    En oferta
+                </label>
+
+            </div>
+        </aside>
+
+        <!-- PRODUCTOS -->
+        <section class="lg:w-3/4">
+
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
+
+                <!-- PRODUCT CARD -->
+                <div class="relative bg-white rounded shadow hover:shadow-lg transition flex flex-col">
+
+                    <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
+                        Oferta
+                    </span>
+
+                    <img src="https://picsum.photos/400/300?random=2" class="h-52 w-full object-cover rounded-t">
+
+                    <div class="p-4 flex flex-col flex-1">
+
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-lg">Audífonos Pro</h3>
+                            <p class="text-yellow-400">★★★★★</p>
+
+                            <p class="text-gray-500 text-sm mb-4">
+                                Alta calidad de sonido y cancelación de ruido.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-blue-600 text-xl mb-2">$199</h4>
+
+                            <button onclick="openModal()"
+                                class="w-full border border-blue-600 text-blue-600 py-2 rounded hover:bg-blue-600 hover:text-white transition mb-2">
+                                Vista rápida
+                            </button>
+
+                            <button class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+                                Agregar al carrito
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- PRODUCT CARD -->
+                <div class="bg-white rounded shadow hover:shadow-lg transition flex flex-col">
+
+                    <img src="https://picsum.photos/400/300?random=3" class="h-52 w-full object-cover rounded-t">
+
+                    <div class="p-4 flex flex-col flex-1">
+
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-lg">Smartwatch X</h3>
+                            <p class="text-yellow-400">★★★★☆</p>
+
+                            <p class="text-gray-500 text-sm mb-4">
+                                Control de salud y notificaciones inteligentes.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-blue-600 text-xl mb-2">$149</h4>
+
+                            <button
+                                class="w-full border border-blue-600 text-blue-600 py-2 rounded mb-2 hover:bg-blue-600 hover:text-white transition">
+                                Vista rápida
+                            </button>
+
+                            <button class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+                                Agregar al carrito
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- PRODUCT CARD -->
+                <div class="bg-white rounded shadow hover:shadow-lg transition flex flex-col">
+
+                    <img src="https://picsum.photos/400/300?random=4" class="h-52 w-full object-cover rounded-t">
+
+                    <div class="p-4 flex flex-col flex-1">
+
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-lg">Teclado Mecánico</h3>
+                            <p class="text-yellow-400">★★★★★</p>
+
+                            <p class="text-gray-500 text-sm mb-4">
+                                Iluminación RGB y switches profesionales.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-blue-600 text-xl mb-2">$129</h4>
+
+                            <button
+                                class="w-full border border-blue-600 text-blue-600 py-2 rounded mb-2 hover:bg-blue-600 hover:text-white transition">
+                                Vista rápida
+                            </button>
+
+                            <button class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+                                Agregar al carrito
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="flex justify-center mt-8 gap-2">
+                <button class="px-4 py-2 bg-gray-200 rounded">Anterior</button>
+                <button class="px-4 py-2 bg-blue-600 text-white rounded">1</button>
+                <button class="px-4 py-2 bg-gray-200 rounded">2</button>
+                <button class="px-4 py-2 bg-gray-200 rounded">Siguiente</button>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded p-6 max-w-2xl w-full relative">
+
+            <button onclick="closeModal()" class="absolute right-3 top-3 text-lg">✖</button>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <img src="https://picsum.photos/500/400?random=5" class="rounded">
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Audífonos Pro</h3>
+
+                    <p class="text-gray-600 mb-4">
+                        Audífonos profesionales con sonido envolvente y batería de larga duración.
+                    </p>
+
+                    <h4 class="text-blue-600 text-2xl mb-3">$199</h4>
+
+                    <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                        Agregar al carrito
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div id="cart" class="fixed top-0 -right-100 w-80 h-full bg-white shadow-lg transition-all duration-300 p-4 z-50">
+
+        <h3 class="text-lg font-semibold mb-4">Carrito</h3>
+        <p>No hay productos aún</p>
+
+        <button onclick="toggleCart()" class="mt-4 bg-gray-300 px-4 py-2 rounded">
+            Cerrar
+        </button>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white text-center py-6 mt-10">
+        <p>© 2026 ShopX - Demo Tailwind Ecommerce</p>
+    </footer>
+
+    <script>
+        function openModal() {
+            let modal = document.getElementById("modal")
+            modal.classList.remove("hidden")
+            modal.classList.add("flex")
+        }
+
+        function closeModal() {
+            let modal = document.getElementById("modal")
+            modal.classList.add("hidden")
+            modal.classList.remove("flex")
+        }
+
+        function toggleCart() {
+            let cart = document.getElementById("cart")
+
+            if (cart.classList.contains("-right-[400px]")) {
+                cart.classList.remove("-right-[400px]")
+                cart.classList.add("right-0")
+            } else {
+                cart.classList.remove("right-0")
+                cart.classList.add("-right-[400px]")
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+/* ===== HOME PAGE STYLES ===== */
+
+.home {
+  padding-bottom: 60px;
+}
+
+/* Hero Section */
+.home-hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  color: var(--color-text-primary);
+  text-shadow: 0 0 40px rgba(0, 234, 255, 0.3);
+}
+
+.home-title .text-gradient {
+  background: var(--gradient-neon);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Search Section */
+.home-search {
+  padding: 20px 0 30px;
+}
+
+/* Filters Section */
+.home-filters {
+  padding-bottom: 40px;
+}
+
+/* Results Section */
+.home-results {
+  padding-top: 20px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.results-count {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Movies Grid */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.no-results-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  color: var(--color-text-primary);
+}
+
+.no-results p {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  .home-subtitle {
+    font-size: 1rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-hero {
+    padding: 40px 15px 30px;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .results-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .results-title {
+    font-size: 1.4rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}

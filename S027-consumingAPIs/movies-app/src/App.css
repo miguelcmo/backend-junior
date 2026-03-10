@@ -1,0 +1,48 @@
+body {
+  background: #0d0d0d;
+  color: white;
+  font-family: system-ui;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #141414;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: .3s;
+  text-decoration: none;
+  color: white;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-info {
+  padding: 10px;
+}
+
+.detail {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+}
+
+.detail img {
+  width: 300px;
+  border-radius: 10px;
+}

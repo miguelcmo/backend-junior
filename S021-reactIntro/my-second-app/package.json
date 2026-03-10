@@ -1,0 +1,16 @@
+{
+  "name": "my-second-app",
+  "version": "1.0.0",
+  "description": "Esta es una app de prueba para lanzar una app desde cero con npm",
+  "license": "MIT",
+  "author": "Miguel Angel Carrillo",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
