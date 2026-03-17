@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Simulador Banda Transportadora</title>
+
+<style>
+body{
+margin:0;
+overflow:hidden;
+font-family:Arial;
+}
+
+#panel{
+position:absolute;
+top:20px;
+left:20px;
+background:white;
+padding:10px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="panel">
+<b>Simulación Banda Transportadora</b><br>
+Piezas detectadas: <span id="counter">0</span>
+</div>
+
+<script type="module">
+
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+
+let scene, camera, renderer;
+let piezas = [];
+let sensorX = 0;
+let contador = 0;
+
+init();
+animar();
+
+function init(){
+
+scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf0f0f0);
+
+camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
+
+camera.position.set(6,5,10);
+camera.lookAt(0,0,0);
+
+renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+window.addEventListener("resize",resize);
+
+// luces
+
+const light = new THREE.DirectionalLight(0xffffff,1);
+light.position.set(10,10,10);
+scene.add(light);
+
+scene.add(new THREE.AmbientLight(0xffffff,0.5));
+
+// piso
+
+const floorGeo = new THREE.PlaneGeometry(50,50);
+const floorMat = new THREE.MeshStandardMaterial({color:0xdddddd});
+const floor = new THREE.Mesh(floorGeo,floorMat);
+floor.rotation.x = -Math.PI/2;
+scene.add(floor);
+
+// base banda
+
+const baseGeo = new THREE.BoxGeometry(10,0.5,2);
+const baseMat = new THREE.MeshStandardMaterial({color:0x555555});
+const base = new THREE.Mesh(baseGeo,baseMat);
+scene.add(base);
+
+// cinta
+
+const beltGeo = new THREE.BoxGeometry(10,0.1,1.6);
+const beltMat = new THREE.MeshStandardMaterial({color:0x222222});
+const belt = new THREE.Mesh(beltGeo,beltMat);
+belt.position.y = 0.3;
+scene.add(belt);
+
+// rodillos
+
+crearRodillo(-5);
+crearRodillo(5);
+
+// sensor visual
+
+const sensorGeo = new THREE.BoxGeometry(0.2,0.5,0.5);
+const sensorMat = new THREE.MeshStandardMaterial({color:0xff0000});
+const sensor = new THREE.Mesh(sensorGeo,sensorMat);
+
+sensor.position.set(sensorX,0.7,0);
+
+scene.add(sensor);
+
+// crear piezas periódicamente
+
+setInterval(crearPieza,2000);
+
+}
+
+function crearRodillo(x){
+
+const geo = new THREE.CylinderGeometry(0.3,0.3,1.7,32);
+const mat = new THREE.MeshStandardMaterial({color:0x888888});
+
+const roller = new THREE.Mesh(geo,mat);
+
+roller.rotation.z = Math.PI/2;
+roller.position.set(x,0.3,0);
+
+scene.add(roller);
+
+}
+
+function crearPieza(){
+
+const geo = new THREE.BoxGeometry(0.5,0.5,0.5);
+const mat = new THREE.MeshStandardMaterial({color:0xffaa00});
+
+const pieza = new THREE.Mesh(geo,mat);
+
+pieza.position.set(-4.5,0.6,0);
+
+pieza.userData.detectada = false;
+
+scene.add(pieza);
+
+piezas.push(pieza);
+
+}
+
+function animar(){
+
+requestAnimationFrame(animar);
+
+// mover piezas
+
+piezas.forEach(p => {
+
+p.position.x += 0.02;
+
+// deteccion sensor
+
+if(!p.userData.detectada && Math.abs(p.position.x - sensorX) < 0.05){
+
+p.userData.detectada = true;
+
+contador++;
+
+document.getElementById("counter").innerText = contador;
+
+console.log("pieza detectada");
+
+}
+
+// eliminar piezas al final
+
+if(p.position.x > 5){
+
+scene.remove(p);
+
+}
+
+});
+
+renderer.render(scene,camera);
+
+}
+
+function resize(){
+
+camera.aspect = window.innerWidth/window.innerHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(window.innerWidth,window.innerHeight);
+
+}
+
+</script>
+
+</body>
+</html>
+
