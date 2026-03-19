@@ -1,0 +1,88 @@
+let projects = [
+    {
+        id: 1,
+        name: "Website design",
+        status: "active",
+        description: "Diseño de un sitio web responsivo"
+    },
+    {
+        id: 2,
+        name: "Mobile App",
+        status: "planning",
+        description: "Creación de una app de contactos con Flutter"
+    }
+]
+
+const getProjects = (req, res) => {
+    res.json(projects)
+}
+
+const getProjectById = (req, res) => {
+    const id = parseInt(req.params.id)
+
+    const project = projects.find(project => project.id === id)
+    
+    if(!project) {
+
+        return res.status(404).json({ message: "Project not found" })
+    }
+
+    res.json(project)
+}
+
+const createProject = (req, res) => {
+    const { name, status, description } = req.body
+
+    const newProject = {
+        id: projects.length + 1,
+        name,
+        status,
+        description
+    }
+
+    projects.push(newProject)
+
+    res.status(201).json(newProject)
+}
+
+const updateProject = (req, res) => {
+    const id = parseInt(req.params.id)
+    const project = projects.find(project => project.id === id)
+
+    if(!project) {
+        return res.status(404).json({ message: "Project not found" })
+    }
+
+    const { name, status, description } = req.body
+
+    project.name = name || project.name
+    project.status = status || project.status
+    project.description = description || project.description
+    
+    res.json(project)
+}
+
+const deleteProject = (req, res) => {
+    const id = parseInt(req.params.id)
+    const index = projects.findIndex(project => project.id === id)
+
+    if (index === -1) {
+        return res.status(404).json({ message: "Project not found" })
+    }
+
+    const deleted = projects.splice(index, 1)
+
+    res.json({
+        message: "Project deleted",
+        project: deleted[0]
+    })
+}
+
+
+module.exports = {
+    getProjects,
+    getProjectById,
+    createProject,
+    updateProject,
+    deleteProject
+}
