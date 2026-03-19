@@ -10,8 +10,6 @@ const {
     deleteProject
 } = require("../controllers/projects.controller")
 
-const validateProject = require("../middleware/validateProject");
-
 // Read
 router.get("/", getProjects)
 
@@ -19,7 +17,7 @@ router.get("/", getProjects)
 router.get("/:id", getProjectById)
 
 // Create
-router.post("/", validateProject, createProject)
+router.post("/", createProject)
 
 // Update
 router.put("/:id", updateProject)

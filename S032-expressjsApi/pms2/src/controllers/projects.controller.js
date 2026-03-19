@@ -32,8 +32,6 @@ const getProjectById = (req, res) => {
 
 const createProject = (req, res) => {
     const { name, status, description } = req.body
-    
-    throw new Error("Test error");
 
     const newProject = {
         id: projects.length + 1,
