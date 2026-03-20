@@ -18,8 +18,3 @@ Vamos a tener una esturtcura basada en un patron de arquitectura RCMS:
 --services
 --middleware (funciones utilitarias que se desarrollan en express para ampliar su funcionalidad)
 --database
-
-## Middleware
-Funciones o fragmentos de codigo que se ejecutan en medio del proceso de comunicacion
-
-Request -> Middleware * n -> Routes -> Controller -> Response

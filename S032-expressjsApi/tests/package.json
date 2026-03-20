@@ -1,0 +1,21 @@
+{
+  "name": "project-management-system-api",
+  "version": "1.0.0",
+  "description": "API de Sistema de gestión de proyectos simple",
+  "license": "ISC",
+  "author": "miguelcmo",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

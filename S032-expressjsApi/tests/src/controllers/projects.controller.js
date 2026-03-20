@@ -13,9 +13,13 @@ let projects = [
     }
 ]
 
-const getProjects = (req, res) => {
+const getProjects = async (req, res) => {
 
-    throw new Error("Testing error hanlder middleware")
+    // test error middleware
+    //throw new Error("Testing error hanlder middleware")
+    const projects = await req.app.locals.db.all(
+        "SELECT * FROM projects"
+    );
     
     res.json(projects)
 }
@@ -33,19 +37,30 @@ const getProjectById = (req, res) => {
     res.json(project)
 }
 
-const createProject = (req, res) => {
+const createProject = async (req, res) => {
     const { name, status, description } = req.body
 
-    const newProject = {
-        id: projects.length + 1,
+    // const newProject = {
+    //     id: projects.length + 1,
+    //     name,
+    //     status,
+    //     description
+    // }
+
+    // projects.push(newProject)
+
+    // res.status(201).json(newProject)
+    const result = await req.app.locals.db.run(
+        "INSERT INTO projects (name, description, status) VALUES (?, ?, ?)",
+        [name, description, status]
+    );
+
+    res.status(201).json({
+        id: result.lastID,
         name,
-        status,
-        description
-    }
-
-    projects.push(newProject)
-
-    res.status(201).json(newProject)
+        description,
+        status
+    });
 }
 
 const updateProject = (req, res) => {
