@@ -92,10 +92,19 @@ const deleteTask = (req, res) => {
     })
 }
 
+const getCurrentUser = (req, res) => {
+
+  res.json({
+    user: req.user
+  });
+
+};
+
 module.exports = {
     getTasksByProject,
     getTaskById,
     createTask,
     updateTask,
-    deleteTask
+    deleteTask,
+    getCurrentUser
 }

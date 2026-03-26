@@ -25,7 +25,8 @@ async function initDB() {
                 name TEXT,
                 email TEXT UNIQUE,
                 password TEXT,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                role TEXT DEFAULT 'user'
             );
         `)
     
