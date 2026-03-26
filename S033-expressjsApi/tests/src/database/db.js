@@ -11,18 +11,32 @@ async function connectDB() {
 async function initDB() {
     const db = await connectDB()
 
-    await db.exec(`
-            CREATE TABLE IF NOT EXISTS projects (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                description TEXT,
-                status TEXT,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        `)
+    try {
+        await db.exec(`
+                CREATE TABLE IF NOT EXISTS projects (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name TEXT NOT NULL,
+                    description TEXT,
+                    status TEXT,
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                );
+                
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name TEXT,
+                    email TEXT UNIQUE,
+                    password TEXT,
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                );
+            `)
+    } catch (err) {
+        console.error("Error creating tables:", err)
+    }
     
     return db
 }
 
-module.exports = connectDB
-module.exports = initDB
+module.exports = {
+    connectDB,
+    initDB
+}

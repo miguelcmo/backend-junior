@@ -6,13 +6,16 @@ const app = express()
 
 app.use(express.json())
 
-const initDB = require("./database/db")
+const { initDB } = require("./database/db")
 
 // Ejecutar el middleware antes de las rutas
 const logger = require("./middleware/logger")
 app.use(logger)
 
 // Routes
+const authRoutes = require("./auth/auth.routes");
+app.use("/api/auth", authRoutes);
+
 const projectRoutes = require("./routes/projects.routes")
 app.use("/api/projects", projectRoutes)
 

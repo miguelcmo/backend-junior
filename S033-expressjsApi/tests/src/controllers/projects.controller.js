@@ -13,126 +13,87 @@ let projects = [
     }
 ]
 
+const projectsService = require("../services/projects.service");
+
 const getProjects = async (req, res) => {
 
     // Se lanza un error de forma arbitraria para probar el middleware errorHandler
     //throw new Error("Testing error hanlder middleware")
-    const projects = await req.app.locals.db.all(
-        "SELECT * FROM projects"
-    )
-    
-    res.json(projects)
+    // const projects = await req.app.locals.db.all(
+    //     "SELECT * FROM projects"
+    // )
+
+    // res.json(projects)
+    const db = req.app.locals.db;
+
+    const projects = await projectsService.getAllProjects(db);
+
+    res.json(projects);
 }
 
 const getProjectById = async (req, res) => {
-    const id = parseInt(req.params.id)
 
-    // const project = projects.find(project => project.id === id)
-    
-    // if(!project) {
+    const db = req.app.locals.db;
 
-    //     return res.status(404).json({ message: "Project not found" })
-    // }
+    const id = parseInt(req.params.id);
 
-    // res.json(project)
+    const project = await projectsService.getProjectById(db, id);
 
-    try {
-        const project = await req.app.locals.db.get(
-            "SELECT * FROM projects WHERE id = ?",
-            [id]
-        )
-
-        if (!project) {
-            return res.status(404).json({ message: "Project not found" })
-        }
-
-        res.json(project)
-    } catch (error) {
-        res.status(500).json({ message: error.message })
+    if (!project) {
+        return res.status(404).json({
+            message: "Project not found"
+        });
     }
-}
+
+    res.json(project);
+
+};
 
 const createProject = async (req, res) => {
-    const { name, status, description } = req.body
 
-    // const newProject = {
-    //     id: projects.length + 1,
-    //     name,
-    //     status,
-    //     description
-    // }
+    const db = req.app.locals.db;
 
-    // projects.push(newProject)
+    const project = await projectsService.createProject(
+        db,
+        req.body
+    );
 
-    // res.status(201).json(newProject)
+    res.status(201).json(project);
 
-    const result = await req.app.locals.db.run(
-        "INSERT INTO projects (name, description, status) VALUES (?, ?, ?)",
-        [name, description, status] // Parameter binding
-    )
-
-    res.status(201).json({
-        id: result.lastID,
-        name,
-        description,
-        status
-    })
-}
+};
 
 const updateProject = async (req, res) => {
-    const { id } = req.params
-    const { name, description, status } = req.body
-    
-    try {  
-        if(isNaN(id)) {
-            return res.status(400).json({ message: "Invalid ID"})
-        }
+    const db = req.app.locals.db;
+    const id = parseInt(req.params.id);
 
-        const result = await req.app.locals.db.run(
-            `UPDATE projects
-            SET name = ?, description = ?, status = ?
-            WHERE id = ?`,
-            [name, description, status, id]
-        )
+    const project = await projectsService.updateProject(db, id, req.body);
 
-        if (result.changes === 0) {
-            return res.status(404).json({ message: "Project not found" })
-        }
-        const updatedProject = await req.app.locals.db.get(
-            "SELECT * FROM projects WHERE id = ?",
-            [id]
-        )
-
-        res.json(updatedProject)
-
-    } catch (error) {
-        res.status(500).json({ message: error.message })
+    if (!project) {
+        return res.status(404).json({
+            message: "Project not found"
+        });
     }
-}
+
+    res.json(project);
+};
 
 const deleteProject = async (req, res) => {
-    const { id } = req.params
+    const db = req.app.locals.db;
+    const id = parseInt(req.params.id);
 
-    try {
-        if(isNaN(id)) {
-            return res.status(400).json({ message: "Invalid ID"})
-        }
+    const project = await projectsService.deleteProject(db, id);
 
-        const result = await req.app.locals.db.run(
-            "DELETE FROM projects WHERE id = ?",
-            [id]
-        )
-
-        if (result.changes === 0) {
-            return res.status(404).json({ message: "Project not found" })
-        }
-
-        res.status(204).send()
-    } catch (error) {
-        res.status(500).json({ message: error.message })
+    if (!project) {
+        return res.status(404).json({
+            message: "Project not found"
+        });
     }
-}
 
+    res.status(200).json({
+        message: "Project deleted successfully",
+        project: project
+    });
+};
 
 module.exports = {
     getProjects,
