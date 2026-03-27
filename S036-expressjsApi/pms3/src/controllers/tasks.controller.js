@@ -134,44 +134,6 @@ const getCurrentUser = (req, res) => {
     res.json({ user: req.user });
 };
 
-const listTasks = async (req, res) => {
-
-  const db = req.app.locals.db;
-
-  const { status, priority } = req.query;
-
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 10;
-  const offset = (page - 1) * limit;
-  const sort = req.query.sort || "created_at";
-
-  let query = "SELECT * FROM tasks WHERE 1=1";
-  let params = [];
-
-  if (status) {
-    query += " AND status = ?";
-    params.push(status);
-  }
-
-  if (priority) {
-    query += " AND priority = ?";
-    params.push(priority);
-  }
-
-  query += ` ORDER BY ${sort} ASC `;
-
-//   query += " LIMIT ? OFFSET ?";
-//   params.push(limit, offset);
-query += ` LIMIT ${limit} OFFSET ${offset}`;
-
-
-
-  const tasks = await db.all(query, params);
-
-  res.json(tasks);
-
-};
-
 module.exports = {
     getTasksByProject,
     getTaskById,

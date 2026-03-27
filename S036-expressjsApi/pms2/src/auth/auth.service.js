@@ -4,15 +4,13 @@ const jwt = require("jsonwebtoken")
 const SECRET = "secretkey"
 
 const registerUser = async (db, data) => {
-    const { name, email, password, role } = data
-
-    const userRole = role || 'user'
+    const { name, email, password } = data
 
     const hashedPassword = await bcrypt.hash(password, 10)
 
     const result = await db.run(
-        "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)",
-        [name, email, hashedPassword, userRole]
+        "INSERT INTO user (name, email, password) VALUES (?, ?, ?)",
+        [name, email, hashedPassword]
     )
 
     return {
@@ -37,11 +35,7 @@ const loginUser = async (db, data) => {
     if (!valid) return null
 
     const token = jwt.sign(
-        { 
-            id: user.id, 
-            email: user.email,
-            role: user.role
-        },
+        { id: user.id, email: user.email },
         SECRET,
         { expiresIn: "1h" }
     )
