@@ -2,8 +2,11 @@
 // Request -> instanciar la BD -> logging(MW) -> Routes(projects, tasks, users, comments) -> Error Handler (MW) -> Response
 
 const express = require("express")
+const cors = require("cors")
+
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 const { initDB } = require("./database/db")
@@ -34,7 +37,7 @@ app.use(
 const errorHandler = require("./middleware/errorHandler")
 app.use(errorHandler)
 
-const PORT = 3000
+const PORT = 4000
 
 // levantar el servidor
 initDB().then(database => {
