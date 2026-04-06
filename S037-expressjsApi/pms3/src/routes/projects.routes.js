@@ -22,7 +22,41 @@ router.get("/", getProjects)
 // Read by Id
 router.get("/:id", getProjectById)
 
-
+/**
+ * @openapi
+ * /projects:
+ *   post:
+ *     summary: Create a new project
+ *     description: Crea un nuevo proyecto, requiere autenticación y autorización para roles de administrador "admin" y usuario "user".
+ *     tags:
+ *       - Projects
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *             required:
+ *               - name
+ *     responses:
+ *       201:
+ *         description: Project created succesfully
+ *       400: 
+ *         description: Invalid project data
+ *       401: 
+ *         description: Unauthorized access
+ *       404:
+ *         description: Forbidden access
+ */
 router.post(
     "/", 
     authenticate, 
