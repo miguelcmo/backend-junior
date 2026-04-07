@@ -28,6 +28,11 @@ const swaggerUi = require("swagger-ui-express")
 const swaggerSpec = require("./docs/swagger")
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
+// Root route to indicate server is running
+app.get("/", (req, res) => {
+    res.send("Server is running")
+})
+
 // manejo de errores depues de ejecutar toda nuestra aplicacion
 const errorHandler = require("./middleware/errorHandler")
 app.use(errorHandler)

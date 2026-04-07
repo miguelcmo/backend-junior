@@ -1,6 +1,14 @@
 body {
     background: linear-gradient(135deg, #0f172a, #1e293b);
     color: #fff;
-    font-family: "inter", sans-serif;
+    font-family: "inter", Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.card-custom:hover {
+  transform: translateY(-2px);
+  transition: 0.5s;
+}
+
+button {
+  border-radius: 10px !important;
+}
