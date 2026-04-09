@@ -8,6 +8,8 @@ const Tasks = () => {
     const [tasks, setTasks] = useState([])
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const [status, setStatus] = useState("")
+    const [page, setPage] = useState(1);
 
     const handleCreateTask = async () => {
         await client.post(`/projects/${projectId}/tasks`, {
@@ -20,11 +22,11 @@ const Tasks = () => {
 
     useEffect(() => {
         const fetchTasks = async () => {
-            const res = await client.get(`/projects/${projectId}/tasks`)
+            const res = await client.get(`/listtasks?status=${status}&page=${page}&limit=5`)
             setTasks(res.data)
         }
         fetchTasks()
-    }, [projectId])
+    }, [projectId, status, page])
 
     return (
         <div className="container">
@@ -51,6 +53,19 @@ const Tasks = () => {
                     </button>
                 </div>
 
+                <div>
+                    <h3>Filtros:</h3>
+                    <select
+                        className="form-control mb-3"
+                        onChange={(e) => setStatus(e.target.value)}
+                        >
+                        <option value="">Todos</option>
+                        <option value="todo">Todo</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="done">Done</option>
+                    </select>
+                </div>
+
                 {tasks.map(task => (
                     <div className="card p-3 mb-2" key={task.id}>
                         <h5>{task.title}</h5>
@@ -58,6 +73,20 @@ const Tasks = () => {
                         <span>{task.status}</span>
                     </div>
                 ))}
+                <div className="d-flex gap-2 mt-3">
+                    <button
+                        className="btn btn-outline-light"
+                        onClick={() => setPage(page - 1)}
+                    >
+                        Prev
+                    </button>
+                    <button
+                        className="btn btn-outline-light"
+                        onClick={() => setPage(page + 1)}
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
         </div>
     )

@@ -1,11 +1,16 @@
 import { useState } from "react"
 import client from "../api/client"
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext"
+import { useContext } from "react"
+
 
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+    // add this
+    const { login } = useContext(AuthContext)
 
     const handleLogin = async (e) => {
         e.preventDefault()
@@ -18,7 +23,8 @@ const Login = () => {
 
             const token = response.data.token
             
-            localStorage.setItem("token", token)
+            //localStorage.setItem("token", token)
+            login(token)
             
             navigate("/dashboard")
             

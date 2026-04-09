@@ -2,12 +2,16 @@ import Navbar from "../components/Navbar"
 import { useEffect, useState } from "react"
 import client from "../api/client"
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext"
+import { useContext } from "react"
+
 
 const Dashboard = () => {
     const [projects, setProjects] = useState([])
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const navigate = useNavigate()
+    const { user } = useContext(AuthContext);
 
     const handleCreate = async () => {
         try {
@@ -94,12 +98,14 @@ const Dashboard = () => {
                             >
                                 Ver Tareas
                             </button>
+                            {user?.role === "admin" && (
                             <button
                                 className="btn btn-danger mt-2"
                                 onClick={() => handleDelete(project.id)}
                             >
                                 Eliminar
                             </button>
+                            )}
                         </div>
                     </div> 
                 ))}
