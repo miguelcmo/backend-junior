@@ -4,3 +4,18 @@ body {
     font-family: "inter", sans-serif;
 }
 
+.todo {
+    border-left: 4px solid #6b7280;
+}
+
+.in_progress {
+    border-left: 4px solid #f59e0b;
+}
+
+.done {
+    border-left: 4px solid #10b981;
+}
+
+.pending {
+    border-left: 3px solid #cc112d;
+}

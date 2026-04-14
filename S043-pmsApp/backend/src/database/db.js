@@ -1,11 +1,18 @@
-const sqlite3 = require("sqlite3")
-const { open } = require("sqlite")
+// const sqlite3 = require("sqlite3")
+// const { open } = require("sqlite")
 
-async function connectDB() {
-    return open({
-        filename: "./database.sqlite",
-        driver: sqlite3.Database
-    })
+// async function connectDB() {
+//     return open({
+//         filename: "./database.sqlite",
+//         driver: sqlite3.Database
+//     })
+// }
+
+const Database = require("better-sqlite3");
+
+function connectDB() {
+    const db = new Database("database.sqlite");
+    return db;
 }
 
 async function initDB() {

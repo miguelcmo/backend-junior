@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import client from "../api/client"
+import TasksList from "../components/TasksList"
+import KanbanBoard from "../components/KanbanBoard"
 
 const Tasks = () => {
     const { projectId } = useParams()
@@ -9,7 +11,9 @@ const Tasks = () => {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [status, setStatus] = useState("")
+    const [priority, setPriority] = useState("")
     const [page, setPage] = useState(1)
+    const [view, setView] = useState("list")
 
     const handleCreateTask = async () => {
         await client.post(`/projects/${projectId}/tasks`, {
@@ -30,7 +34,7 @@ const Tasks = () => {
 
     useEffect(() => {
         const fetchTasks = async () => {
-            const res = await client.get(`/listtasks?status=${status}&page=${page}&limit=5`)
+            const res = await client.get(`/listtasks?status=${status}&priority=${priority}&page=${page}&limit=10`)
             setTasks(res.data)
         }
         fetchTasks()
@@ -75,13 +79,35 @@ const Tasks = () => {
                     </select>
                 </div>
 
-                {tasks.map(task => (
+                <h5>Selección de vista de tareas</h5>
+                <div className="mb-3">
+                    <button
+                        className="btn btn-outline-light me-2"
+                        onClick={() => setView("list")}
+                    >
+                        Lista
+                    </button>
+                    <button
+                        className="btn btn-outline-light me-2"
+                        onClick={() => setView("kanban")}
+                    >
+                        Kanban
+                    </button>
+                </div>
+
+                {/* {tasks.map(task => (
                     <div className="card p-3 mb-2" key={task.id}>
                         <h5>{task.title}</h5>
                         <p>{task.description}</p>
                         <span>{task.status}</span>
                     </div>
-                ))}
+                ))} */}
+
+                {view === "list" ? (
+                    <TasksList tasks={tasks} />
+                ) : (
+                    <KanbanBoard tasks={tasks} setTasks={setTasks} />
+                )}
 
                 <div className="d-flex gap-2 mt-3">
                     <button
