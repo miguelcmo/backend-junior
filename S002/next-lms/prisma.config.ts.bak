@@ -21,6 +21,7 @@ export default defineConfig({
   // 👇 ESTO ES LO QUE TE FALTA
   migrations: {
     path: "prisma/migrations",
+    seed: 'ts-node prisma/seed.ts'
   },
 
   datasource: {
